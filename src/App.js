@@ -3,9 +3,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route } from 'react-router-dom';
 import { Home, Login, Public } from './containers/public';
 import path from './ultis/path';
-
+import { useEffect } from 'react';
+import * as action from './store/actions';
+import { useDispatch } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() =>{
+    dispatch(action.getHome());
+  },[])
+
+
   return (
     <>
       <div className="">
